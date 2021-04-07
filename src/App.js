@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+// Fetching JSON files locally => app.pluralsight.com/guides/fetch-data-from-a-json-file-in-a-react-app
+// const getData = () => {
+//   fetch("people.json", {
+//     headers: {
+//       "Content-Type": "application/json",
+//       Accept: "application/json",
+//     },
+//   })
+//     .then((response) => {
+//       return response.json();
+//     })
+//     .then((myJson) => setData(myJson));
+// };
 
-function App() {
+import React, { useState, useEffect } from "react";
+
+const App = () => {
+  const [data, setData] = useState([]);
+
+  const getData = () => {
+    fetch("MOCK_DATA.json", {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    })
+      .then((response) => {
+        return response.json();
+      })
+      .then((myJson) => setData(myJson));
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <input type="text" placeholder="Search..." />
+      {data.map((val, key) => {
+        return (
+          <div key={key}>
+            <p>{val.first_name} </p>{" "}
+          </div>
+        );
+      })}
     </div>
   );
-}
+};
 
 export default App;

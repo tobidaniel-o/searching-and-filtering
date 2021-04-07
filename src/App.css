@@ -1,38 +1,62 @@
-.App {
-  text-align: center;
+.__dml_table {
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.__dml_table tr {
+  border-collapse: collapse;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.__dml_table tr th {
+  text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.__dml_table tr th,
+.__dml_table tr td {
+  padding: 0.5rem;
+  border-top: 1px solid gainsboro;
+  border-left: 1px solid gainsboro;
+}
+
+.__dml_table tr th:last-child,
+.__dml_table tr td:last-child {
+  border-right: 1px solid gainsboro;
+}
+.__dml_table tr:last-child th,
+.__dml_table tr:last-child td {
+  border-bottom: 1px solid gainsboro;
+}
+
+.__dml_table tr td {
+  font-weight: 300;
+}
+
+.__dml_table tr th {
+  font-weight: 700;
+}
+
+:root {
+  font-size: 16px;
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+.flex-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-direction: row;
+  flex-wrap: nowrap;
 }
 
-.App-link {
-  color: #61dafb;
+.flex-full {
+  width: 100%;
+  flex: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.__dml_text-field {
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  border: 1px solid lightgrey;
+  box-sizing: border-box;
 }
